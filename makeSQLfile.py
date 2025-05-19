@@ -12,5 +12,5 @@ cur = con.cursor()
 cur.execute("DROP TABLE IF EXISTS WeatherPredictions;")
 
 # Create WeatherPredictions table
-create_table_super = '''CREATE TABLE WeatherPredictions('date', 'guess_made', 'city', 'country')'''
-cur.execute(create_table_super)
+create_table_weather = '''CREATE TABLE WeatherPredictions('date', 'guess_made', 'city', 'country')'''
+cur.execute(create_table_weather)
