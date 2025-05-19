@@ -12,10 +12,9 @@ public_IPAddr = ip.get()
 
 
 
-import ipinfo
 
 
-access_token = input('please enter your access token: ') # to get your own access token, go to
+access_token = input('please enter your ipinfo access token: ') # to get your own access token, go to
 #https://ipinfo.io/dashboard and sign up. you get 50,000 requests on the free plan each month
 
 ip_address = public_IPAddr  # Replace with the desired IP address
