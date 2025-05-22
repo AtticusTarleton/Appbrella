@@ -5,6 +5,7 @@ import public_ip as ip
 import ipinfo
 import datetime
 import random
+import math
 
 from numpy.ma.extras import average
 
@@ -56,8 +57,6 @@ average_temp = {
 # need to absolute value the latitude to compare them. how to get values example: = climate_dict.get('polar')
 # link to info https://scijinks.gov/climate-zones/ , https://mediaspace.msu.edu/media/Latitude+and+Global+CirculationA+Know+your+zones%21+/0_h896bb25
 
-random_number1 = random.random() #weather random number
-random_number2 = random.random() #temp random number
 
 ## now on to the functions
 def weather_generator(random_number):
@@ -81,6 +80,13 @@ def weather_generator(random_number):
 
     return guess
 # print(weather_generator())
+
+
+def temp_prediction(climate, season):
+    avg_temp = average_temp[climate][season]
+    random_number = random.gauss(0,7)
+    temp_guess = avg_temp + random_number
+    return f'the average temperature of today should be {temp_guess}'
 
 # computers public ip address
 def get_public_ip():
@@ -205,7 +211,8 @@ if __name__ == "__main__":
         weather_prediction = past_pred[0][0]
     else:
         add_to_database(date, weather_prediction,location[1], location[0])
-    print(weather_prediction)
+    print(f"{weather_prediction}\n"
+          f"with a temperature of _ ")
 
     #need to add a temp predictor , then add the two predictions together
 
