@@ -6,6 +6,7 @@ import ipinfo
 import datetime
 import random
 import math
+import requests
 
 from numpy.ma.extras import average
 
@@ -90,8 +91,15 @@ def temp_prediction(climate, season):
 
 # computers public ip address
 def get_public_ip():
-    public_IPAddr = ip.get()
-    return public_IPAddr
+    #public_IPAddr = ip.get()
+    try:
+         response = requests.get("https://api.ipify.org", timeout=5)
+         response.raise_for_status()  # Raise HTTPError for bad responses (4xx or 5xx)
+         return response.text
+    except requests.exceptions.RequestException as e:
+        print(f"An error occurred: {e}")
+        return None
+    #return public_IPAddr
 
 
 # getting the date
@@ -202,7 +210,7 @@ if __name__ == "__main__":
     random_number1 = random.random()  # weather random number
     random_number2 = random.random()  # temp random number
     location = get_the_location(get_the_details(get_public_ip()))
-    climate_zone = get_the_climate(location[2])
+    climate_zone = get_the_climate(location[2])[0]
     date = get_the_date()
     season = get_the_season(climate_zone[1], date)
     weather_prediction = weather_generator(random_number1)
@@ -212,7 +220,7 @@ if __name__ == "__main__":
     else:
         add_to_database(date, weather_prediction,location[1], location[0])
     print(f"{weather_prediction}\n"
-          f"with a temperature of _ ")
+          f"with a temperature of {temp_prediction(climate_zone,season)} ")
 
     #need to add a temp predictor , then add the two predictions together
 

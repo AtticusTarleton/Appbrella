@@ -49,3 +49,14 @@ while j < 10:
     temp_guess = 10 + random_number
     print(temp_guess)
     j+=1
+
+from flask import Flask
+
+app = Flask(__name__)
+
+@app.route("/")
+def hello_world():
+    return "<p>Hello, World!</p>"
+
+#type flask --app test run  #copy paste this into the terminal to get a website
+
