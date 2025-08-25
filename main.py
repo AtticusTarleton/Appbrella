@@ -87,6 +87,7 @@ def temp_prediction(climate, season):
     avg_temp = average_temp[climate][season]
     random_number = random.gauss(0,7)
     temp_guess = avg_temp + random_number
+    temp_guess = int(temp_guess)
     return f'the average temperature of today should be {temp_guess}'
 
 # computers public ip address
