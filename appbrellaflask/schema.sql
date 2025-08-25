@@ -1,0 +1,16 @@
+DROP TABLE IF EXISTS WeatherPredictions;
+DROP TABLE IF EXISTS user;
+
+
+CREATE TABLE user (
+  id INTEGER PRIMARY KEY AUTOINCREMENT,
+  username TEXT UNIQUE NOT NULL,
+  password TEXT NOT NULL
+);
+
+CREATE TABLE WeatherPredictions (
+  id INTEGER PRIMARY KEY AUTOINCREMENT,
+  date_made TEXT NOT NULL,
+  guess_made TEXT NOT NULL,
+  city TEXT,
+  country TEXT);

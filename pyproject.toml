@@ -1,0 +1,11 @@
+[project]
+name = "appbrellaflask"
+version = "1.0.0"
+description = "trying to build appbrella in flasky."
+dependencies = [
+    "flask",
+]
+
+[build-system]
+requires = ["flit_core<4"]
+build-backend = "flit_core.buildapi"
