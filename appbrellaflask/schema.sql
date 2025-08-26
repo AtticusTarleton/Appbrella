@@ -11,6 +11,13 @@ CREATE TABLE user (
 CREATE TABLE WeatherPredictions (
   id INTEGER PRIMARY KEY AUTOINCREMENT,
   date_made TEXT NOT NULL,
-  guess_made TEXT NOT NULL,
-  city TEXT,
-  country TEXT);
+  guess_made TEXT NOT NULL);
+
+  CREATE TABLE post (
+  id INTEGER PRIMARY KEY AUTOINCREMENT,
+  author_id INTEGER NOT NULL,
+  created TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  title TEXT NOT NULL,
+  body TEXT NOT NULL,
+  FOREIGN KEY (author_id) REFERENCES user (id)
+);

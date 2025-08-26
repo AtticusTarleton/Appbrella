@@ -33,4 +33,13 @@ def create_app(test_config=None):
 
     from . import db  # imports from folder
     db.init_app(app)  # runs the init function
-    # ran: flask --app flaskr init-db     to initialize the database(make the file)
+    # ran: flask --app appbrellaflask init-db     to initialize the database(make the file)
+
+    from . import auth
+    app.register_blueprint(auth.bp)
+
+    from . import blog
+    app.register_blueprint(blog.bp)
+    app.add_url_rule('/', endpoint='index')
+
+    return app
