@@ -6,6 +6,8 @@ from werkzeug.exceptions import abort
 from flaskr.auth import login_required
 from flaskr.db import get_db
 import datetime
+import click
+
 
 bp = Blueprint('blog', __name__)
 
@@ -19,17 +21,27 @@ def get_the_date():
 def index():
     date = get_the_date()
     db = get_db()
-    preds = db.execute(f'SELECT guess_made FROM WeatherPredictions WHERE '
-                      f'date_made = {date}').fetchall()
+
+
+
+    preds = db.execute(f'SELECT guess_made, date_made FROM WeatherPredictions WHERE '
+                      f'date_made = "{date}"').fetchall()
+
+    if preds == []:
+        db.execute('INSERT into WeatherPredictions ("guess_made", "date_made")'
+                   f'VALUES ("testing123", "{date}")')
+
+        db.commit()
+
+        preds = db.execute(f'SELECT guess_made, date_made FROM WeatherPredictions WHERE '
+                           f'date_made = "{date}"').fetchall()
+
+
     posts = db.execute(
         'SELECT p.id, title, body, created, author_id, username'
         ' FROM post p JOIN user u ON p.author_id = u.id'
         ' ORDER BY created DESC'
     ).fetchall()
-    #db.execute('INSERT into WeatherPredictions ("guess_made", "date_made")'
-     #          f'VALUES ("testing123", "{date}")')
-
-    #db.commit()
 
     return render_template('blog/index.html', preds=preds, posts=posts)
 

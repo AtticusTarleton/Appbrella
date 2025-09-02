@@ -10,7 +10,7 @@
 {% block content %}
 
 
-  {% for WeatherPredictions in preds %}
+{% for WeatherPredictions in preds %}
     <article class="WeatherPredictions">
       <header>
         <div>
@@ -23,7 +23,7 @@
     {% if not loop.last %}
       <hr>
     {% endif %}
-  {% endfor %}
+{% endfor %}
 
   {% for post in posts %}
     <article class="post">
