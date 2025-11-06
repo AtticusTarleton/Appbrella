@@ -1,5 +1,6 @@
 DROP TABLE IF EXISTS WeatherPredictions;
 DROP TABLE IF EXISTS user;
+DROP TABLE IF EXISTS logRegress;
 
 
 CREATE TABLE user (
@@ -20,4 +21,12 @@ CREATE TABLE WeatherPredictions (
   title TEXT NOT NULL,
   body TEXT NOT NULL,
   FOREIGN KEY (author_id) REFERENCES user (id)
+);
+
+  CREATE TABLE logRegress (
+  id INTEGER PRIMARY KEY AUTOINCREMENT,
+  num1 INTEGER NOT NULL,
+  num2 INTEGER NOT NULL,
+  num3 INTEGER NOT NULL,
+  appleOrOrange TEXT NOT NULL
 );

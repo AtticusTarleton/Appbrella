@@ -8,3 +8,4 @@ into run.py where it will run the program and give the random guess
 
 other stuff to consider:
 adding in javascript to do permissions based predicting using the geolocation API
+having a logistic regression function for something stupid
