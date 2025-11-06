@@ -1,6 +1,6 @@
 DROP TABLE IF EXISTS WeatherPredictions;
 DROP TABLE IF EXISTS user;
-DROP TABLE IF EXISTS logRegress;
+DROP TABLE IF EXISTS SVModel;
 
 
 CREATE TABLE user (
@@ -23,7 +23,7 @@ CREATE TABLE WeatherPredictions (
   FOREIGN KEY (author_id) REFERENCES user (id)
 );
 
-  CREATE TABLE logRegress (
+  CREATE TABLE SVModel (
   id INTEGER PRIMARY KEY AUTOINCREMENT,
   num1 INTEGER NOT NULL,
   num2 INTEGER NOT NULL,
