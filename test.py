@@ -43,20 +43,43 @@ import math
 #     i+=1
 
 #take 2
-j = 0
-while j < 10:
-    random_number = random.gauss(0,7)
-    temp_guess = 10 + random_number
-    print(temp_guess)
-    j+=1
-
-from flask import Flask
-
-app = Flask(__name__)
-
-@app.route("/")
-def hello_world():
-    return "<p>Hello, World!</p>"
+# j = 0
+# while j < 10:
+#     random_number = random.gauss(0,7)
+#     temp_guess = 10 + random_number
+#     print(temp_guess)
+#     j+=1
+#
+# from flask import Flask
+#
+# app = Flask(__name__)
+#
+# @app.route("/")
+# def hello_world():
+#     return "<p>Hello, World!</p>"
 
 #type flask --app test run  #copy paste this into the terminal to get a website
+
+import psutil
+from psutil._common import bytes2human
+import platform
+
+# def pprint_ntuple(nt):
+#     for name in nt._fields:
+#         value = getattr(nt,name)
+#         if name != 'percent':
+#             value = bytes2human(value)
+#         print(f"{name.capitalize():<10} : {value:>7}")
+#
+if __name__ == '__main__' :
+#     phys_cpu_cores = psutil.cpu_count(logical=False)
+#     print(f"there are {phys_cpu_cores} CPU cores on this machine")
+#     print(f"\n memory\n{'-' *22}")
+#     pprint_ntuple(psutil.virtual_memory())
+
+    print(f"Platform: {platform.platform()}")
+    print(f"Machine: {platform.machine()}")
+    print(f"pointer size: {platform.architecture()}")
+    print(f"OS kernel: {platform.system()}")
+    print(f"OS kernel release: {platform.uname().release}")
 

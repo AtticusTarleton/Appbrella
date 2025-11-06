@@ -68,6 +68,9 @@ def weather_generator(random_number):
         guess += 'predict cloudy with a chance of meatballs'
     elif random_number > .9998:
         guess = 'error, weather phenomena too chaotic to predict'
+    elif random_number > .9997:
+        guess = ('consulted our friend E and they predict another'
+                 ' eruption like mount vesuvius happening in a city near you')
     elif random_number > .95 and season == 'winter' and climate_zone == "polar":
         guess += "predict SNOWSTORM!!!!!"
     elif random_number > .5:

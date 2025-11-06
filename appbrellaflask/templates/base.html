@@ -10,7 +10,6 @@
     {% else %}
       <li><a href="{{ url_for('auth.register') }}">Register</a>
       <li><a href="{{ url_for('auth.login') }}">Log In</a>
-      <li><a href = "https://flask.palletsprojects.com/en/stable/tutorial/templates/#id1">link to templates tutorial</a>
     {% endif %}
   </ul>
 </nav>
@@ -22,4 +21,5 @@
     <div class="flash">{{ message }}</div>
   {% endfor %}
   {% block content %}{% endblock %}
+    <!-- this is where I create new blocks. make one for complaints-->
 </section>
